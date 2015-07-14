@@ -1,0 +1,14 @@
+{
+    "version": "1.0.0-*",
+    "description": "ASP.NET 5 HTML Minification middleware.",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/anuraj/htmlminify"
+    },
+    "dependencies": {
+        "Microsoft.AspNet.Mvc": "6.0.0-beta5"
+    },
+    "frameworks": {
+        "dnx451": {}
+    }
+}
