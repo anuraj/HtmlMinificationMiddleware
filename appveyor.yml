@@ -1,0 +1,8 @@
+version: 1.0.{build}
+os: Visual Studio 2015 RC
+
+build_script:
+- dnvm upgrade
+- dnu restore
+test_script:
+- dnx.exe C:\projects\HtmlMinificationMiddleware\test\project.json test -parallel none
