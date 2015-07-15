@@ -3,7 +3,7 @@
     "description": "ASP.NET 5 HTML Minification middleware.",
     "repository": {
         "type": "git",
-        "url": "git://github.com/anuraj/htmlminify"
+        "url": "https://github.com/anuraj/HtmlMinificationMiddleware"
     },
     "dependencies": {
         "Microsoft.AspNet.Mvc": "6.0.0-beta5"

@@ -22,22 +22,24 @@ namespace DotnetThoughts.AspNet
                 context.Response.Body = buffer;
                 await _next(context);
                 var isHtml = context.Response.ContentType?.ToLower().Contains("text/html");
-                if (context.Response.StatusCode == 200 && isHtml.GetValueOrDefault())
+
+                buffer.Seek(0, SeekOrigin.Begin);
+                using (var reader = new StreamReader(buffer))
                 {
-                    buffer.Seek(0, SeekOrigin.Begin);
-                    using (var reader = new StreamReader(buffer))
+                    string responseBody = await reader.ReadToEndAsync();
+                    if (context.Response.StatusCode == 200 && isHtml.GetValueOrDefault())
                     {
-                        string responseBody = await reader.ReadToEndAsync();
-                        responseBody = Regex.Replace(responseBody, @">\s+<", "><", RegexOptions.Compiled);
-                        using (var memoryStream = new MemoryStream())
-                        {
-                            var bytes = Encoding.UTF8.GetBytes(responseBody);
-                            memoryStream.Write(bytes, 0, bytes.Length);
-                            memoryStream.Seek(0, SeekOrigin.Begin);
-                            await memoryStream.CopyToAsync(stream, bytes.Length);
-                        }
+                        responseBody = Regex.Replace(responseBody, @">\s+<", "><", RegexOptions.Compiled);                        
+                    }
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        var bytes = Encoding.UTF8.GetBytes(responseBody);
+                        memoryStream.Write(bytes, 0, bytes.Length);
+                        memoryStream.Seek(0, SeekOrigin.Begin);
+                        await memoryStream.CopyToAsync(stream, bytes.Length);
                     }
                 }
+
             }
         }
     }
