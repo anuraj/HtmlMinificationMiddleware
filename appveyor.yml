@@ -5,4 +5,4 @@ build_script:
 - dnvm upgrade
 - dnu restore
 test_script:
-- dnx.exe C:\projects\HtmlMinificationMiddleware\test\project.json test -parallel none
+- dnx.exe C:\projects\HtmlMinificationMiddleware\test\HtmlMinificationMiddlewareTests\project.json test -parallel none
