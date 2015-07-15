@@ -29,7 +29,8 @@ namespace DotnetThoughts.AspNet
                     string responseBody = await reader.ReadToEndAsync();
                     if (context.Response.StatusCode == 200 && isHtml.GetValueOrDefault())
                     {
-                        responseBody = Regex.Replace(responseBody, @">\s+<", "><", RegexOptions.Compiled);                        
+                        responseBody = Regex.Replace(responseBody, @">\s+<", "><", RegexOptions.Compiled);
+                        responseBody = Regex.Replace(responseBody, @"<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->)(.|\n))*-->", "", RegexOptions.Compiled);
                     }
                     using (var memoryStream = new MemoryStream())
                     {
