@@ -1,6 +1,13 @@
 {
-    "version": "1.0.0-*",
-    "description": "ASP.NET 5 HTML Minification middleware.",
+    "version": "1.0.0",
+    "description": "A ASP.NET 5 middleware implementation which helps to remove whitespaces from the generated HTML.",
+    "authors": ["Anuraj P"],
+	"owners": ["Anuraj P"],
+	"licenseUrl": "https://github.com/anuraj/HtmlMinificationMiddleware/blob/master/license",
+	"projectUrl": "https://github.com/anuraj/HtmlMinificationMiddleware",
+	"requireLicenseAcceptance": false,
+	"summary": "A ASP.NET 5 middleware implementation which helps to remove whitespaces from the generated HTML.",
+	"copyright": "Copyright (C) Anuraj 2015 - 2016",
     "repository": {
         "type": "git",
         "url": "https://github.com/anuraj/HtmlMinificationMiddleware"
