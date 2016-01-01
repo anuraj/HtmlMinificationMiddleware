@@ -1,8 +1,19 @@
 version: 1.0.{build}
-os: Visual Studio 2015 RC
+os: Visual Studio 2015
 
 build_script:
 - dnvm upgrade
 - dnu restore
 test_script:
-- dnx.exe C:\projects\HtmlMinificationMiddleware\test\HtmlMinificationMiddlewareTests\project.json test -parallel none
+- dnx.exe -p test\HtmlMinificationMiddlewareTests\project.json test -parallel none
+after_test:
+- cmd: dnu pack src\HtmlMinificationMiddleware --configuration Release --out Output
+artifacts:
+- path: '\Output\Release\**\*.nupkg'
+  name: Nuget Deploy
+deploy:
+- provider: NuGet
+  server: nuget.org
+  api_key:
+    secure: 5XsCPhzHSChTdym1nwcZps3YxhZqySNztlUeT1rWtMmvrDM+R+WzxUkrYiMLBUVs
+    skip_symbols: true
