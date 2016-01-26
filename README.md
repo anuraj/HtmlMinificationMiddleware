@@ -4,7 +4,7 @@ Minification refers to the process of removing unnecessary or redundant data wit
 
 How to use HTML Minification middleware for ASP.NET 5
 --------------------------------
-* Include sitemap middleware in the project.json file.
+* Include HtmlMinification Middleware middleware in the project.json file.
 ```Javascript
 {
     "version": "1.0.0-*",
