@@ -32,10 +32,9 @@ namespace DotnetThoughts.AspNet
                         responseBody = Regex.Replace(responseBody, @">\s+<", "><", RegexOptions.Compiled);
                         responseBody = Regex.Replace(responseBody, @"<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->)(.|\n))*-->", "", RegexOptions.Compiled);
                     }
-                    using (var memoryStream = new MemoryStream())
+                    var bytes = Encoding.UTF8.GetBytes(responseBody);
+                    using (var memoryStream = new MemoryStream(bytes))
                     {
-                        var bytes = Encoding.UTF8.GetBytes(responseBody);
-                        memoryStream.Write(bytes, 0, bytes.Length);
                         memoryStream.Seek(0, SeekOrigin.Begin);
                         await memoryStream.CopyToAsync(stream, bytes.Length);
                     }
