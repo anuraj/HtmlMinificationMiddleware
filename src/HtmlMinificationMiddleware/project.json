@@ -1,5 +1,5 @@
 {
-    "version": "1.0.0",
+    "version": "1.0.5",
     "description": "A ASP.NET 5 middleware implementation which helps to remove whitespaces from the generated HTML.",
     "authors": ["Anuraj P"],
 	"owners": ["Anuraj P"],
@@ -13,7 +13,7 @@
         "url": "https://github.com/anuraj/HtmlMinificationMiddleware"
     },
     "dependencies": {
-        "Microsoft.AspNet.Mvc": "6.0.0-rc1-16441"
+        "Microsoft.AspNet.Mvc": "6.0.0-*"
     },
     "frameworks": {
         "dnx451": {},
