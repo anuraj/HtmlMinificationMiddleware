@@ -1,13 +1,18 @@
 version: 1.0.{build}
 os: Visual Studio 2015
-
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: /CfucRi5JIhmrcPoornr8fG/r+sRY4jETLdQqJlbxo/4rMMtfuKYI2TDeNu9gg+A
 build_script:
 - dnvm upgrade
 - dnu restore
+
 test_script:
-- dnx.exe -p test\HtmlMinificationMiddlewareTests\project.json test -parallel none
+- cmd: C:\Users\appveyor\.dnx\packages\OpenCover\4.6.261-rc\tools\OpenCover.Console.exe -target:"C:\Users\appveyor\.dnx\runtimes\dnx-clr-win-x86.1.0.0-rc1-update1\bin\dnx.exe" -targetargs:"--lib C:\projects\HtmlMinificationMiddleware\src\HtmlMinificationMiddleware\bin\Debug\dnx451 -p C:\projects\HtmlMinificationMiddleware\test\HtmlMinificationMiddlewareTests test -parallel none" -output:coverage.xml -register:user -filter:"+[*]* -[xunit*]*"
 after_test:
+- cmd: C:\Users\appveyor\.dnx\packages\coveralls.io\1.3.4\tools\coveralls.net.exe --opencover coverage.xml --full-sources
 - cmd: dnu pack src\HtmlMinificationMiddleware --configuration Release --out Output
+
 artifacts:
 - path: '\Output\Release\**\*.nupkg'
   name: Nuget Deploy
