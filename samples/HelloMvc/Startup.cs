@@ -17,7 +17,7 @@ namespace HelloMvc
             loggerFactory.AddConsole();
 
             app.UseIISPlatformHandler();
-            app.UseHTMLMinification();
+            app.UseHTMLMinification("(w*)Page*");
             app.UseCookieAuthentication(options =>
             {
                 options.AutomaticAuthenticate = true;

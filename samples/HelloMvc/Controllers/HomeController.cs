@@ -19,6 +19,48 @@ namespace MvcSample.Web
         {
             return View();
         }
+        
+        [AllowAnonymous]
+        public IActionResult Sample()
+        {
+            return View("Login");
+        }
+        
+        [AllowAnonymous]
+        public IActionResult Page1()
+        {
+            return View("Login");
+        }
+        
+        [AllowAnonymous]
+        public IActionResult Page2()
+        {
+            return View("Login");
+        }
+        
+        [AllowAnonymous]
+        public IActionResult Page3()
+        {
+            return View("Login");
+        }
+        
+        [AllowAnonymous]
+        public IActionResult Page4()
+        {
+            return View("Login");
+        }
+        
+        [AllowAnonymous]
+        public IActionResult Page5()
+        {
+            return View("Login");
+        }
+        
+        [AllowAnonymous]
+        public Person JsonOutput()
+        {
+            return new Person() { Id = 10, Name = "Anuraj", Email = "anuraj@ab.com" };
+        }
 
         [AllowAnonymous, HttpPost]
         public IActionResult Login(FormCollection formCollection)
@@ -31,5 +73,13 @@ namespace MvcSample.Web
 
             return Redirect("~/Home/Index");
         }
+    }
+    
+    public class Person
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        
+        public string Email { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 {
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "A ASP.NET 5 middleware implementation which helps to remove whitespaces from the generated HTML.",
     "authors": ["Anuraj P"],
 	"owners": ["Anuraj P"],
