@@ -39,4 +39,14 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
 ```
 * Done. Now you can browse the URL.
 
+### Excluding URLs from minification.
+
+You can exclude certain pages from minification by using the exclude filter option.
+
+```Javascript
+app.UseHTMLMinification("(w*)Page*");
+```
+
 Appveyor Build Status : [![Build status](https://ci.appveyor.com/api/projects/status/pyltm6fuc9qo8xkq?svg=true)](https://ci.appveyor.com/project/anuraj/htmlminificationmiddleware)
+
+Coverage Status : [![Coverage Status](https://coveralls.io/repos/github/anuraj/HtmlMinificationMiddleware/badge.svg?branch=master)](https://coveralls.io/github/anuraj/HtmlMinificationMiddleware?branch=master)

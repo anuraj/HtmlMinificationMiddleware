@@ -1,5 +1,7 @@
 version: 1.0.{build}
 os: Visual Studio 2015
+build:
+  verbosity: minimal
 environment:
   COVERALLS_REPO_TOKEN:
     secure: /CfucRi5JIhmrcPoornr8fG/r+sRY4jETLdQqJlbxo/4rMMtfuKYI2TDeNu9gg+A
