@@ -6,7 +6,7 @@ environment:
   COVERALLS_REPO_TOKEN:
     secure: /CfucRi5JIhmrcPoornr8fG/r+sRY4jETLdQqJlbxo/4rMMtfuKYI2TDeNu9gg+A
 build_script:
-- dnvm upgrade
+- dnvm upgrade -r coreclr -a x64
 - dnu restore
 - dnu build --framework dnxcore50 src\HtmlMinificationMiddleware\ 
 after_build:
