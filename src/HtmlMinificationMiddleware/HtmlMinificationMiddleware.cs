@@ -33,32 +33,40 @@ namespace DotnetThoughts.AspNet
                 }
             }
             
-            using (var buffer = new MemoryStream())
+            try
             {
-                context.Response.Body = buffer;
-                await _next(context);
-                var isHtml = context.Response.ContentType?.ToLower().Contains("text/html");
-
-                buffer.Seek(0, SeekOrigin.Begin);
-                using (var reader = new StreamReader(buffer))
+                using (var buffer = new MemoryStream())
                 {
-                    string responseBody = await reader.ReadToEndAsync();
-                    if (context.Response.StatusCode == 200 && isHtml.GetValueOrDefault())
-                    {
-                        System.Console.WriteLine("Minification started");
-                        responseBody = Regex.Replace(responseBody, @">\s+<", "><", RegexOptions.Compiled);
-                        responseBody = Regex.Replace(responseBody, @"<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->)(.|\n))*-->", "", RegexOptions.Compiled);
-                        System.Console.WriteLine("Minification end");
-                    }
-                    var bytes = Encoding.UTF8.GetBytes(responseBody);
-                    using (var memoryStream = new MemoryStream(bytes))
-                    {
-                        memoryStream.Seek(0, SeekOrigin.Begin);
-                        await memoryStream.CopyToAsync(stream);
-                    }
-                }
+                    context.Response.Body = buffer;
+                    await _next(context);
+                    var isHtml = context.Response.ContentType?.ToLower().Contains("text/html");
 
+                    buffer.Seek(0, SeekOrigin.Begin);
+                    using (var reader = new StreamReader(buffer))
+                    {
+                        string responseBody = await reader.ReadToEndAsync();
+                        if (context.Response.StatusCode == 200 && isHtml.GetValueOrDefault())
+                        {
+                            responseBody = Regex.Replace(responseBody,
+                                @">\s+<", "><", RegexOptions.Compiled);
+                            responseBody = Regex.Replace(responseBody,
+                                @"<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->)(.|\n))*-->", "", RegexOptions.Compiled);
+                        }
+                        var bytes = Encoding.UTF8.GetBytes(responseBody);
+                        using (var memoryStream = new MemoryStream(bytes))
+                        {
+                            memoryStream.Seek(0, SeekOrigin.Begin);
+                            await memoryStream.CopyToAsync(stream);
+                        }
+                    }
+
+                }
             }
+            finally
+            {
+                context.Response.Body = stream;
+            }
+            
         }
     }
 }
