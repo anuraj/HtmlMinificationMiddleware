@@ -10,7 +10,7 @@ build_script:
 - dotnet pack -c Release -o Output src\HtmlMinificationMiddleware\ 
 
 artifacts:
-- path: '\Output\Release\**\*.nupkg'
+- path: '\Output\*.nupkg'
   name: Nuget Deploy
 deploy:
 - provider: NuGet
