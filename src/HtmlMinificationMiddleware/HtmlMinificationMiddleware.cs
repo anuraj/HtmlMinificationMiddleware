@@ -1,11 +1,10 @@
 namespace DotnetThoughts.AspNet
 {
-    using Microsoft.AspNet.Http;
+    using Microsoft.AspNetCore.Http;
     using System.IO;
     using System.Threading.Tasks;
     using System.Text;
     using System.Text.RegularExpressions;
-    using Microsoft.AspNet.Builder;
 
     public class HtmlMinificationMiddleware
     {

@@ -1,22 +1,36 @@
 {
-    "version": "1.0.6",
-    "description": "A ASP.NET 5 middleware implementation which helps to remove whitespaces from the generated HTML.",
-    "authors": ["Anuraj P"],
-	"owners": ["Anuraj P"],
-	"licenseUrl": "https://github.com/anuraj/HtmlMinificationMiddleware/blob/master/license",
-	"projectUrl": "https://github.com/anuraj/HtmlMinificationMiddleware",
-	"requireLicenseAcceptance": false,
-	"summary": "A ASP.NET 5 middleware implementation which helps to remove whitespaces from the generated HTML.",
-	"copyright": "Copyright (C) Anuraj 2015 - 2016",
+  "version": "2.0.0",
+  "description": "An ASP.NET Core middleware which helps to remove whitespaces from the generated HTML.",
+  "authors": [
+    "Anuraj P"
+  ],
+  "copyright": "Copyright (C) Anuraj P",
+  "title": "HTML Minification Middleware",
+  "packOptions": {
+    "requireLicenseAcceptance": false,
+    "licenseUrl": "https://github.com/anuraj/HtmlMinificationMiddleware/blob/master/license",
+    "owners": [
+      "Anuraj P"
+    ],
+    "summary": "An ASP.NET Core middleware which helps to remove whitespaces from the generated HTML.",
     "repository": {
-        "type": "git",
-        "url": "https://github.com/anuraj/HtmlMinificationMiddleware"
+      "type": "git",
+      "url": "https://github.com/anuraj/HtmlMinificationMiddleware"
     },
-    "dependencies": {
-        "Microsoft.AspNet.Mvc": "6.0.0-*"
-    },
-    "frameworks": {
-        "dnx451": {},
-        "dnxcore50": {}
-    }
+    "tags": [
+      "aspnetcore"
+    ]
+  },
+  "buildOptions": {
+    "debugType": "portable",
+    "warningsAsErrors": true
+  },
+  "dependencies": {
+    "Microsoft.AspNetCore.Mvc": "1.0.0-*",
+    "NETStandard.Library": "1.6.1-*"
+  },
+  "frameworks": {
+    "net451": {},
+    "netstandard1.6": {}
+  }
 }

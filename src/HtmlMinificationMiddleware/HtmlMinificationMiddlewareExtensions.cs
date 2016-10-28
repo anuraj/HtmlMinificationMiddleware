@@ -1,6 +1,6 @@
 namespace DotnetThoughts.AspNet
 {
-    using Microsoft.AspNet.Builder;
+    using Microsoft.AspNetCore.Builder;
 
     public static class BuilderExtensions
     {
