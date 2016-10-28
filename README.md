@@ -35,4 +35,28 @@ You can exclude certain pages from minification by using the exclude filter opti
 app.UseHTMLMinification("(w*)Page*");
 ```
 
+### For ASP.NET MVC Core 1.1+
+
+In ASP.NET Core MVC 1.1 onwards, you can use middlewares as Filters, so instead of using the Minification options, you can use `MiddlewareFilter` attribute, either in Controller or in specific action methods.
+
+```Javascript
+[MiddlewareFilter(typeof(HtmlMinificationPipeline))]
+public class HomeController : Controller
+{
+}
+```
+
+or 
+
+```Javascript
+public class HomeController : Controller
+{
+    [MiddlewareFilter(typeof(HtmlMinificationPipeline))]
+    public IActionResult Index()
+    {
+        return View();
+    }
+}
+```
+
 Appveyor Build Status : [![Build status](https://ci.appveyor.com/api/projects/status/pyltm6fuc9qo8xkq?svg=true)](https://ci.appveyor.com/project/anuraj/htmlminificationmiddleware)
