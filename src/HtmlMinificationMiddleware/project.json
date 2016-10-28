@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "An ASP.NET Core middleware which helps to remove whitespaces from the generated HTML.",
   "authors": [
     "Anuraj P"
@@ -18,7 +18,9 @@
       "url": "https://github.com/anuraj/HtmlMinificationMiddleware"
     },
     "tags": [
-      "aspnetcore"
+      "aspnetcore",
+      "Middleware",
+      "HTML"
     ]
   },
   "buildOptions": {

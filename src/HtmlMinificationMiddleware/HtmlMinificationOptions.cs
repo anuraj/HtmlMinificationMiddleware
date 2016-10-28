@@ -1,4 +1,4 @@
-namespace DotnetThoughts.AspNet
+namespace DotnetThoughts.AspNetCore
 {
     public class HtmlMinificationOptions
     {
