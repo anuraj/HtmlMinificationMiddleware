@@ -9,7 +9,7 @@ build_script:
 - dotnet restore
 - dotnet pack -c Release -o Output src\HtmlMinificationMiddleware\ 
 test_script:
-- dotnet test Test\HtmlMinificationMiddleware.Tests\project.json
+- cmd: C:\Users\appveyor\.nuget\packages\OpenCover\4.6.519\tools\OpenCover.Console.exe -target:"C:\Program Files\dotnet\dotnet.exe" -targetargs:"test C:\projects\HtmlMinificationMiddleware\test\HtmlMinificationMiddleware.Tests" -register:user -filter:"+[*]* -[xunit*]*" -output:coverage.xml -oldStyle
 artifacts:
 - path: '\Output\*.nupkg'
   name: Nuget Deploy
