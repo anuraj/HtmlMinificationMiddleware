@@ -8,7 +8,8 @@ environment:
 build_script:
 - dotnet restore
 - dotnet pack -c Release -o Output src\HtmlMinificationMiddleware\ 
-
+test_script:
+- dotnet test Test\HtmlMinificationMiddleware.Tests\project.json
 artifacts:
 - path: '\Output\*.nupkg'
   name: Nuget Deploy
