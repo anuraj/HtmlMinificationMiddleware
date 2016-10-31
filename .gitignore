@@ -1,3 +1,9 @@
-samples/HelloMvc/project.lock.json
-src/HtmlMinificationMiddleware/project.lock.json
+project.lock.json
 .vscode
+bin
+obj
+*.pdb
+*.dll
+*.deps.json
+*.runtimeconfig.dev.json
+*.runtimeconfig.json
