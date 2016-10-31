@@ -7,3 +7,5 @@ obj
 *.deps.json
 *.runtimeconfig.dev.json
 *.runtimeconfig.json
+results.xml
+coverage.xml
