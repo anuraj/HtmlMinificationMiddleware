@@ -7,7 +7,7 @@ environment:
     secure: /CfucRi5JIhmrcPoornr8fG/r+sRY4jETLdQqJlbxo/4rMMtfuKYI2TDeNu9gg+A
 build_script:
 - dotnet restore
-- dotnet pack -c Release -o Output src\HtmlMinificationMiddleware\ 
+- dotnet pack -c Release -o Output src\HtmlMinificationMiddleware\HtmlMinificationMiddleware.csproj 
 test_script:
 - cmd: C:\Users\appveyor\.nuget\packages\OpenCover\4.6.519\tools\OpenCover.Console.exe -target:"C:\Program Files\dotnet\dotnet.exe" -targetargs:"test C:\projects\HtmlMinificationMiddleware\test\HtmlMinificationMiddleware.Tests" -register:user -filter:"+[*]* -[xunit*]*" -output:coverage.xml -oldStyle
 after_test:		
