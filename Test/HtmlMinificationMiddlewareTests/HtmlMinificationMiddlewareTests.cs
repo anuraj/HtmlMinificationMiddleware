@@ -1,15 +1,15 @@
-﻿using System;
-using System.Net;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.TestHost;
-using Xunit;
-
-namespace DotnetThoughts.AspNetCore.Tests
+﻿namespace DotnetThoughts.AspNetCore.Tests
 {
+    using System;
+    using System.Net;
+    using System.Text.RegularExpressions;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.TestHost;
+    using Xunit;
+
     public class HtmlMinificationMiddlewareTests
     {
         [Fact]
