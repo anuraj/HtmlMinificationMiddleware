@@ -9,3 +9,4 @@ obj
 *.runtimeconfig.json
 results.xml
 coverage.xml
+Output

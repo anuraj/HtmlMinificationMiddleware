@@ -12,7 +12,7 @@ build_script:
 test_script:
 - cmd: dotnet test C:\projects\HtmlMinificationMiddleware\Test\HtmlMinificationMiddlewareTests\HtmlMinificationMiddleware.Tests.csproj
 artifacts:
-- path: '\Output\*.nupkg'
+- path: 'src\HtmlMinificationMiddleware\Output\*.nupkg'
   name: Nuget Deploy
 deploy:
 - provider: NuGet
