@@ -1,6 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>2.2.0</Version>
+    <Authors>Anuraj</Authors>
+    <Company>dotnetthoughts</Company>
+    <Description>An ASP.NET Core middleware helps to remove un wanted whitespaces from your web application and improves page rendering performance.</Description>
+    <Copyright>Copyright © dotnetthoughts. All rights reserved.</Copyright>
+    <PackageLicenseUrl>https://github.com/anuraj/HtmlMinificationMiddleware/blob/master/license</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/anuraj/HtmlMinificationMiddleware</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/anuraj/HtmlMinificationMiddleware/master/logo.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/anuraj/HtmlMinificationMiddleware</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags>ASP.NET Core, HTML, Middleware</PackageTags>
+    <PackageReleaseNotes>Version 2.2.0 - Migrated to .NET Core 2.0</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.0" />
