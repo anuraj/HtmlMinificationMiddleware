@@ -5,24 +5,34 @@ Minification refers to the process of removing unnecessary or redundant data wit
 How to use HTML Minification middleware for ASP.NET Core
 --------------------------------
 * Include HtmlMinification Middleware middleware in the project.json file.
-```Javascript
-{
-    "version": "1.0.0-*",
-    "webroot": "wwwroot",
-    "dependencies": {
-        "HtmlMinificationMiddleware": "1.0.0"
-    }
-}
+```Xml
+<ItemGroup>
+  <PackageReference Include="HtmlMinificationMiddleware" Version="2.2.0" />
+  <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+</ItemGroup>
 ```
 * Modify the startup.cs - configure to enable HTML minification.
 ```Javascript
-public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
-    loggerFactory.AddConsole();
-    app.UseIISPlatformHandler();
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
+    else
+    {
+        app.UseExceptionHandler("/Error");
+    }
+    
     app.UseHTMLMinification();
-    app.UseDeveloperExceptionPage();
-    app.UseMvcWithDefaultRoute();
+    app.UseStaticFiles();
+
+    app.UseMvc(routes =>
+    {
+        routes.MapRoute(
+            name: "default",
+            template: "{controller}/{action=Index}/{id?}");
+    });
 }
 ```
 * Done. Now you can browse the URL.
