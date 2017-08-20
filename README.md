@@ -60,5 +60,3 @@ public class HomeController : Controller
 ```
 
 Appveyor Build Status : [![Build status](https://ci.appveyor.com/api/projects/status/pyltm6fuc9qo8xkq?svg=true)](https://ci.appveyor.com/project/anuraj/htmlminificationmiddleware)
-
-Coverage Status : [![Coverage Status](https://coveralls.io/repos/github/anuraj/HtmlMinificationMiddleware/badge.svg?branch=master)](https://coveralls.io/github/anuraj/HtmlMinificationMiddleware?branch=master)
