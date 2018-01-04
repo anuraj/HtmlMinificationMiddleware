@@ -1,8 +1,10 @@
+
 namespace DotnetThoughts.AspNetCore
 {
     using System.IO;
     using System.Threading.Tasks;
     using System.Text;
+
     using System.Text.RegularExpressions;
     using Microsoft.AspNetCore.Http;
 
@@ -46,14 +48,14 @@ namespace DotnetThoughts.AspNetCore
                         string responseBody = await reader.ReadToEndAsync();
                         if (context.Response.StatusCode == 200 && isHtml.GetValueOrDefault())
                         {
-                            responseBody = Regex.Replace(responseBody,
-                                @">\s+<", "><", RegexOptions.Compiled);
-                            responseBody = Regex.Replace(responseBody,
-                                @"<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->)(.|\n))*-->", "", RegexOptions.Compiled);
+                            responseBody = Regex.Replace(responseBody, 
+                                @"(?<=[^])\t{2,}|(?<=[>])\s{2,}(?=[<])|(?<=[>])\s{2,11}(?=[<])|(?=[\n])\s{2,}", 
+                                string.Empty,RegexOptions.Compiled);     // alternate regex option
                         }
                         var bytes = Encoding.UTF8.GetBytes(responseBody);
                         using (var memoryStream = new MemoryStream(bytes))
                         {
+                            memoryStream.Write(bytes, 0, bytes.Length);  // i believe this line is required to work correctly
                             memoryStream.Seek(0, SeekOrigin.Begin);
                             await memoryStream.CopyToAsync(stream);
                         }
