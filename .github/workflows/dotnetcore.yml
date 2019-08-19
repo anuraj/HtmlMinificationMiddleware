@@ -17,3 +17,8 @@ jobs:
       run: dotnet test
     - name: Build NuGet Package
       run: dotnet pack ./src/HtmlMinificationMiddleware/HtmlMinificationMiddleware.csproj --configuration Release -o NuGetPackages
+    - name: Deploy NuGet Package
+      uses: anuraj/nuget-push@v0.3-Alpha
+      with:
+        nugetpackage: ./src/HtmlMinificationMiddleware/NuGetPackages/HtmlMinificationMiddleware.2.2.1.nupkg
+        nugetapikey: ${{ secrets.NUGET_API_KEY }}
