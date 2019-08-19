@@ -15,3 +15,5 @@ jobs:
       run: dotnet build --configuration Release
     - name: Unit Tests
       run: dotnet test
+    - name: Build NuGet Package
+      run: dotnet pack ./HtmlMinificationMiddleware/src/HtmlMinificationMiddleware/HtmlMinificationMiddleware.csproj --configuration Release -o NuGetPackages
