@@ -19,3 +19,7 @@ jobs:
       run: dotnet pack ./src/HtmlMinificationMiddleware/HtmlMinificationMiddleware.csproj --configuration Release -o NuGetPackages
     - name: Deploy NuGet Package
       run: dotnet nuget push ./src/HtmlMinificationMiddleware/NuGetPackages/HtmlMinificationMiddleware.2.2.1.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+    - name: Deploy NuGet Package to GitHub
+      run: |
+        nuget sources Add -Name "GPR" -Source "https://nuget.pkg.github.com/anuraj/index.json" -UserName anuraj -Password ${{ secrets.GITHUB_TOKEN }}
+        nuget push ./src/HtmlMinificationMiddleware/NuGetPackages/HtmlMinificationMiddleware.2.2.1.nupkg -Source "GPR"
