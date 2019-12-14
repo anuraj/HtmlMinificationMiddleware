@@ -4,35 +4,20 @@ Minification refers to the process of removing unnecessary or redundant data wit
 
 How to use HTML Minification middleware for ASP.NET Core
 --------------------------------
-* Include HtmlMinification Middleware middleware in the project.json file.
+* Include HtmlMinification Middleware middleware in the project file.
 ```Xml
 <ItemGroup>
-  <PackageReference Include="HtmlMinificationMiddleware" Version="2.2.0" />
-  <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+  <PackageReference Include="HtmlMinificationMiddleware" Version="3.1.0" />
 </ItemGroup>
 ```
 * Modify the startup.cs - configure to enable HTML minification.
 ```Javascript
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
-    if (env.IsDevelopment())
-    {
-        app.UseDeveloperExceptionPage();
-    }
-    else
-    {
-        app.UseExceptionHandler("/Error");
-    }
-    
+    /* Code removed for brevity. */
     app.UseHTMLMinification();
     app.UseStaticFiles();
-
-    app.UseMvc(routes =>
-    {
-        routes.MapRoute(
-            name: "default",
-            template: "{controller}/{action=Index}/{id?}");
-    });
+    /* Code removed for brevity. */
 }
 ```
 * Done. Now you can browse the URL.
@@ -69,4 +54,4 @@ public class HomeController : Controller
 }
 ```
 
-Appveyor Build Status : [![Build status](https://ci.appveyor.com/api/projects/status/pyltm6fuc9qo8xkq?svg=true)](https://ci.appveyor.com/project/anuraj/htmlminificationmiddleware)
+[![Build Status](https://dev.azure.com/anurajp/HtmlMinificationMiddleware/_apis/build/status/HtmlMinificationMiddleware-CI?branchName=master)](https://dev.azure.com/anurajp/HtmlMinificationMiddleware/_build/latest?definitionId=6&branchName=master)
